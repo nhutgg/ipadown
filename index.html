@@ -64,6 +64,30 @@
             margin: 0 10px;
             text-decoration: none;
         }
+        /* CSS để căn giữa video */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px; /* Điều chỉnh chiều cao của video theo nhu cầu */
+        }
+        .video-container iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* Media queries để điều chỉnh kiểu hiển thị trên thiết bị di động */
+        @media (max-width: 768px) {
+            .profile {
+                padding: 10px;
+            }
+            .button-list li {
+                margin-bottom: 5px;
+            }
+            .video-container {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -91,17 +115,12 @@
             <a href="https://telegram.org/">Telegram</a>
         </div>
     </footer>
-<!-- Mã nhúng iframe để xem video YouTube -->
-    <div>
-        
-        <
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Mã nhúng iframe để xem video YouTube và căn giữa tự động -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    
-
-    <
-  
     <script>
         function copyBankAccount() {
             var bankAccount = document.createElement("textarea");
