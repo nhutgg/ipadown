@@ -4,82 +4,6 @@
     <meta charset="UTF-8">
     <title>Giới thiệu cá nhân</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .profile {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: left;
-        }
-        .profile h1 {
-            font-size: 24px;
-            text-align: center;
-        }
-        .profile p {
-            font-size: 24px;
-            line-height: 1.5;
-            margin: 0;
-            padding: 5px 0;
-        }
-        .icons {
-            font-size: 24px;
-            display: flex;
-            justify-content: center;
-        }
-        .icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: black;
-        }
-        .button-list {
-            list-style: none;
-            padding: 0;
-        }
-        .button-list li {
-            margin-bottom: 10px;
-        }
-        .button {
-            display: block;
-            padding: 10px;
-            text-align: center;
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #ddd;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-        }
-        .footer-icons {
-            text-align: center;
-        }
-        .footer-icons a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        /* CSS để căn giữa video */
-        .video-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 400px; /* Điều chỉnh chiều cao của video theo nhu cầu */
-        }
-        .video-container iframe {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
         /* CSS để tạo khung đen cho mã */
         .code-box {
             background-color: #000;
@@ -107,34 +31,6 @@
     color: white !important;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important;
 }
-
-
-        /* Media queries để điều chỉnh kiểu hiển thị cho từng thiết bị */
-        /* Thiết bị có độ phân giải lớn hơn hoặc bằng 768px (máy tính) */
-        @media (min-width: 768px) {
-            .profile {
-                padding: 20px;
-            }
-            .button-list li {
-                margin-bottom: 10px;
-            }
-            .video-container {
-                height: 400px;
-            }
-        }
-
-        /* Thiết bị có độ phân giải nhỏ hơn 768px (cho di động) */
-        @media (max-width: 767px) {
-            .profile {
-                padding: 10px;
-            }
-            .button-list li {
-                margin-bottom: 5px;
-            }
-            .video-container {
-                height: 200px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -158,10 +54,14 @@
     <!-- Khung đen cho mã và nút sao chép -->
     <div class="code-box">
         <pre class="wp-block-code"><code class="">
-pkg insttall git && pkg install python && git clone https://github.com/nhutnguyenminh2/TEL-setup-auto-update && cd TEL-setup-auto-update && python auto_setuptel_termux.py</code></pre>
-        <button class="copy-button success" onclick="copyCode()">Sao chép</button>
-
+            <span class="keyword">cd</span> ~
+            <span class="keyword">git clone</span> <span class="url">https://github.com/alphacodinghub/v2ray-nginx-docker.git</span>
+            <span class="keyword">cd</span> <span class="directory">v2ray-nginx-docker</span>
+        </code></pre>
+        <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
     </div>
+
+    <!-- ... (Thêm các khung mã code khác nếu cần) -->
 
     <footer>
         <div class="footer-icons">
@@ -175,10 +75,12 @@ pkg insttall git && pkg install python && git clone https://github.com/nhutnguye
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
     </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+    <!-- Thêm thư viện Clipboard.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 
     <script>
-        function copyBankAccount() {
+      function copyBankAccount() {
             var bankAccount = document.createElement("textarea");
             bankAccount.value = "03333333";
             document.body.appendChild(bankAccount);
@@ -197,48 +99,24 @@ pkg insttall git && pkg install python && git clone https://github.com/nhutnguye
             document.body.removeChild(wallet);
             alert("Đã sao chép ví điện tử!");
         }
-      // Khởi tạo Clipboard.js với nút sao chép
-    var clipboard = new ClipboardJS('.copy-button', {
-        text: function(trigger) {
-            // Lấy nội dung của mã code cần sao chép
-            return trigger.previousElementSibling.textContent;
+        // Hàm sao chép đoạn mã
+        function copyCode(button) {
+            var codeText = button.previousElementSibling.querySelector('code');
+            var tempInput = document.createElement('textarea');
+            tempInput.value = codeText.textContent;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showSuccessIcon(button);
         }
-    });
 
-    // Xử lý sự kiện khi sao chép thành công
-    clipboard.on('success', function(e) {
-        e.clearSelection();
-        showSuccessIcon(e.trigger);
-    });
-
-    // Xử lý sự kiện khi sao chép thất bại
-    clipboard.on('error', function(e) {
-        alert('Không thể sao chép đoạn mã. Hãy sao chép bằng cách thủ công.');
-    });
-
-    // Hàm sao chép đoạn mã
-    function copyCode() {
-        var codeText = document.querySelector('.wp-block-code code');
-        var tempInput = document.createElement('textarea');
-        tempInput.value = codeText.textContent;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        showSuccessIcon(this);
-    }
-
-    // Hàm hiển thị dấu tích thành công và ẩn thông báo
-    function showSuccessIcon(button) {
-        var successIcon = button.querySelector('.success-icon');
-        var copyButton = button.querySelector('.copy-button');
-        successIcon.style.display = 'inline';
-        copyButton.style.display = 'none';
-        setTimeout(function() {
-            successIcon.style.display = 'none';
-            copyButton.style.display = 'inline';
-        }, 2000); // 2 giây sau đó ẩn dấu tích và hiện nút sao chép lại
-    }
+        // Hàm hiển thị dấu tích thành công và thay đổi màu của nút sao chép
+        function showSuccessIcon(button) {
+            button.classList.add('success');
+            button.textContent = 'Đã sao chép';
+            button.disabled = true;
+        }
     </script>
 </body>
 </html>
