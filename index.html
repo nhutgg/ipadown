@@ -7,6 +7,8 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         .profile {
             max-width: 800px;
@@ -76,8 +78,22 @@
             max-height: 100%;
         }
 
-        /* Media queries để điều chỉnh kiểu hiển thị trên thiết bị di động */
-        @media (max-width: 768px) {
+        /* Media queries để điều chỉnh kiểu hiển thị cho từng thiết bị */
+        /* Thiết bị có độ phân giải lớn hơn hoặc bằng 768px (máy tính) */
+        @media (min-width: 768px) {
+            .profile {
+                padding: 20px;
+            }
+            .button-list li {
+                margin-bottom: 10px;
+            }
+            .video-container {
+                height: 400px;
+            }
+        }
+
+        /* Thiết bị có độ phân giải nhỏ hơn 768px (cho di động) */
+        @media (max-width: 767px) {
             .profile {
                 padding: 10px;
             }
@@ -86,6 +102,14 @@
             }
             .video-container {
                 height: 200px;
+            }
+            /* Tăng kích thước chữ và căn giữa thẳng hàng cho thiết bị di động */
+            .profile p {
+                font-size: 18px;
+                text-align: center;
+            }
+            .button {
+                font-size: 18px;
             }
         }
     </style>
@@ -120,6 +144,7 @@
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
     </div>
+
     <script>
         function copyBankAccount() {
             var bankAccount = document.createElement("textarea");
