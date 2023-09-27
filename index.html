@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Giới thiệu cá nhân</title>
     <style>
-        /* CSS để tạo khung đen cho mã */
+        /* ... (CSS của bạn ở đây) */
+      /* CSS để tạo khung đen cho mã */
         .code-box {
             background-color: #000;
             padding: 10px;
@@ -51,15 +52,42 @@
         </ul>
     </div>
 
-    <!-- Khung đen cho mã và nút sao chép -->
-    <div class="code-box">
-        <pre class="wp-block-code"><code class="">
-            <span class="keyword">cd</span> ~
-            <span class="keyword">git clone</span> <span class="url">https://github.com/alphacodinghub/v2ray-nginx-docker.git</span>
-            <span class="keyword">cd</span> <span class="directory">v2ray-nginx-docker</span>
-        </code></pre>
-        <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
-    </div>
+     <!-- Khung đen cho mã và nút sao chép -->
+<div class="code-box">
+    <pre class="wp-block-code"><code class="">
+        <span class="keyword">cd</span> ~
+        <span class="keyword">git clone</span> <span class="url">https://github.com/alphacodinghub/v2ray-nginx-docker.git</span>
+        <span class="keyword">cd</span> <span class="directory">v2ray-nginx-docker</span>
+    </code></pre>
+    <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
+</div>
+
+<style>
+    /* Màu cho các loại mã code */
+    .keyword {
+        color: blue; /* Màu cho từ khóa (vd: cd, git clone) */
+    }
+
+    .url {
+        color: green; /* Màu cho URL (vd: https://github.com/alphacodinghub/v2ray-nginx-docker.git) */
+    }
+
+    .directory {
+        color: orange; /* Màu cho thư mục (vd: v2ray-nginx-docker) */
+    }
+
+    /* Màu chữ lập trình */
+    .programming-text {
+        color: #FF9800; /* Màu cam (hoặc màu bạn muốn) */
+        font-style: italic;
+    }
+
+    /* Màu cho nút sao chép khi thành công */
+    .copy-button.success {
+        background-color: green; /* Màu xanh cho nút sao chép sau khi sao chép thành công */
+        color: white; /* Màu chữ trắng */
+    }
+</style>
 
     <!-- ... (Thêm các khung mã code khác nếu cần) -->
 
@@ -109,6 +137,10 @@
             document.execCommand('copy');
             document.body.removeChild(tempInput);
             showSuccessIcon(button);
+            // Tự động làm refresh sau khi sao chép thành công
+            setTimeout(function() {
+                location.reload();
+            }, 1000); // Thời gian trễ trước khi làm refresh (ở đây là 1 giây)
         }
 
         // Hàm hiển thị dấu tích thành công và thay đổi màu của nút sao chép
