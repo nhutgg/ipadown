@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Giới thiệu cá nhân</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .profile {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: left;
+        }
+        .profile h1 {
+            font-size: 24px;
+            text-align: center;
+        }
+        .profile p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .icons {
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+        }
+        .icons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: black;
+        }
+        .button-list {
+            list-style: none;
+            padding: 0;
+        }
+        .button-list li {
+            margin-bottom: 10px;
+        }
+        .button {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #ddd;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        .footer-icons {
+            text-align: center;
+        }
+        .footer-icons a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <h1>Thông tin cá nhân</h1>
+        <p>Tên: Tên Của Bạn</p>
+        <p>Email: example@email.com</p>
+        <p>Số điện thoại: 0123-456-789</p>
+        <p>Ví điện tử: Ví điện tử của bạn</p>
+        <p>Tài khoản ngân hàng: 03333333</p>
+        <ul class="button-list">
+            <li>
+                <button class="button" onclick="copyBankAccount()">Sao chép số tài khoản ngân hàng</button>
+            </li>
+            <li>
+                <button class="button" onclick="copyWallet()">Sao chép ví điện tử</button>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/">Facebook</a>
+            <a href="https://www.youtube.com/">Youtube</a>
+            <a href="https://telegram.org/">Telegram</a>
+        </div>
+    </footer>
+<!-- Mã nhúng iframe để xem video YouTube -->
+    <div>
+        
+        <
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    
+
+    <
+  
+    <script>
+        function copyBankAccount() {
+            var bankAccount = document.createElement("textarea");
+            bankAccount.value = "03333333";
+            document.body.appendChild(bankAccount);
+            bankAccount.select();
+            document.execCommand("copy");
+            document.body.removeChild(bankAccount);
+            alert("Đã sao chép số tài khoản ngân hàng!");
+        }
+
+        function copyWallet() {
+            var wallet = document.createElement("textarea");
+            wallet.value = "Ví điện tử của bạn";
+            document.body.appendChild(wallet);
+            wallet.select();
+            document.execCommand("copy");
+            document.body.removeChild(wallet);
+            alert("Đã sao chép ví điện tử!");
+        }
+    </script>
+</body>
+</html>
