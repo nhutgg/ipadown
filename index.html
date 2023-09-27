@@ -21,10 +21,10 @@
             text-align: center;
         }
         .profile p {
-            font-size: 24px; /* Tăng kích thước font chữ */
+            font-size: 24px;
             line-height: 1.5;
-            margin: 0; /* Loại bỏ khoảng cách giữa các dòng */
-            padding: 5px 0; /* Thêm khoảng cách giữa các dòng */
+            margin: 0;
+            padding: 5px 0;
         }
         .icons {
             font-size: 24px;
@@ -80,6 +80,35 @@
             max-height: 100%;
         }
 
+        /* CSS để tạo khung đen cho mã */
+        .code-box {
+            background-color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            color: #fff;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Nút sao chép */
+        .copy-button {
+            background-color: #f2f2f2;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        /* Màu khi sao chép thành công */
+.success {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important;
+}
+
+
         /* Media queries để điều chỉnh kiểu hiển thị cho từng thiết bị */
         /* Thiết bị có độ phân giải lớn hơn hoặc bằng 768px (máy tính) */
         @media (min-width: 768px) {
@@ -126,6 +155,14 @@
         </ul>
     </div>
 
+    <!-- Khung đen cho mã và nút sao chép -->
+    <div class="code-box">
+        <pre class="wp-block-code"><code class="">
+pkg insttall git && pkg install python && git clone https://github.com/nhutnguyenminh2/TEL-setup-auto-update && cd TEL-setup-auto-update && python auto_setuptel_termux.py</code></pre>
+        <button class="copy-button success" onclick="copyCode()">Sao chép</button>
+
+    </div>
+
     <footer>
         <div class="footer-icons">
             <a href="https://www.facebook.com/">Facebook</a>
@@ -138,6 +175,7 @@
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 
     <script>
         function copyBankAccount() {
@@ -159,6 +197,48 @@
             document.body.removeChild(wallet);
             alert("Đã sao chép ví điện tử!");
         }
+      // Khởi tạo Clipboard.js với nút sao chép
+    var clipboard = new ClipboardJS('.copy-button', {
+        text: function(trigger) {
+            // Lấy nội dung của mã code cần sao chép
+            return trigger.previousElementSibling.textContent;
+        }
+    });
+
+    // Xử lý sự kiện khi sao chép thành công
+    clipboard.on('success', function(e) {
+        e.clearSelection();
+        showSuccessIcon(e.trigger);
+    });
+
+    // Xử lý sự kiện khi sao chép thất bại
+    clipboard.on('error', function(e) {
+        alert('Không thể sao chép đoạn mã. Hãy sao chép bằng cách thủ công.');
+    });
+
+    // Hàm sao chép đoạn mã
+    function copyCode() {
+        var codeText = document.querySelector('.wp-block-code code');
+        var tempInput = document.createElement('textarea');
+        tempInput.value = codeText.textContent;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showSuccessIcon(this);
+    }
+
+    // Hàm hiển thị dấu tích thành công và ẩn thông báo
+    function showSuccessIcon(button) {
+        var successIcon = button.querySelector('.success-icon');
+        var copyButton = button.querySelector('.copy-button');
+        successIcon.style.display = 'inline';
+        copyButton.style.display = 'none';
+        setTimeout(function() {
+            successIcon.style.display = 'none';
+            copyButton.style.display = 'inline';
+        }, 2000); // 2 giây sau đó ẩn dấu tích và hiện nút sao chép lại
+    }
     </script>
 </body>
 </html>
