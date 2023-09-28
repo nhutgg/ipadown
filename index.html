@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <title>Giới thiệu cá nhân</title>
     <style>
-      
-       /* CSS cho điện thoại (độ phân giải nhỏ hơn 768px) */
-@media (max-width: 767px) {
-    /* Thay đổi kích thước font chữ */
-    body {
-        font-size: 24px; /* Điều chỉnh kích thước font chữ theo ý muốn */
-    }
+        /* CSS cho điện thoại (độ phân giải nhỏ hơn 768px) */
+        @media (max-width: 767px) {
+            /* Thay đổi kích thước font chữ cho thiết bị di động */
+            body {
+                font-size: 18px;
+            }
 
-    /* Di chuyển nút sao chép lên trên bên trái của khung sao chép */
-    .copy-button {
-        float: top;
-        margin: 0px 0 0 0px;
-    }
-}
+            /* Đảm bảo nội dung đầy đủ hiển thị trên điện thoại */
+            .profile p {
+                word-wrap: break-word;
+            }
+
+            /* Di chuyển nút sao chép lên trên bên trái của khung sao chép */
+            .copy-button {
+                float: left;
+                margin: 0;
+            }
+        }
 
         /* ... (Thêm CSS tùy chỉnh cho các thiết bị khác nếu cần) */
       
@@ -44,11 +48,11 @@
         }
 
         /* Màu khi sao chép thành công */
-.success {
-    background-color: #4CAF50 !important;
-    color: white !important;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important;
-}
+        .success {
+            background-color: #4CAF50 !important;
+            color: white !important;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out !important;
+        }
     </style>
 </head>
 <body>
@@ -77,37 +81,34 @@
         <pre class="wp-block-code"><code class="">
 pkg insttall git && pkg install python && git clone https://github.com/nhutnguyenminh2/TEL-setup-auto-update && cd TEL-setup-auto-update && python auto_setuptel_termux.py</code></pre>
        <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
-
     </div>
-<style>
-    /* Màu cho các loại mã code */
-    .keyword {
-        color: blue; /* Màu cho từ khóa (vd: cd, git clone) */
-    }
+    <style>
+        /* Màu cho các loại mã code */
+        .keyword {
+            color: blue; /* Màu cho từ khóa (vd: cd, git clone) */
+        }
 
-    .url {
-        color: green; /* Màu cho URL (vd: https://github.com/alphacodinghub/v2ray-nginx-docker.git) */
-    }
+        .url {
+            color: green; /* Màu cho URL (vd: https://github.com/alphacodinghub/v2ray-nginx-docker.git) */
+        }
 
-    .directory {
-        color: orange; /* Màu cho thư mục (vd: v2ray-nginx-docker) */
-    }
+        .directory {
+            color: orange; /* Màu cho thư mục (vd: v2ray-nginx-docker) */
+        }
 
-    /* Màu chữ lập trình */
-    .programming-text {
-        color: #FF9800; /* Màu cam (hoặc màu bạn muốn) */
-        font-style: italic;
-    }
+        /* Màu chữ lập trình */
+        .programming-text {
+            color: #FF9800; /* Màu cam (hoặc màu bạn muốn) */
+            font-style: italic;
+        }
 
-    /* Màu cho nút sao chép khi thành công */
-    .copy-button.success {
-        background-color: green; /* Màu xanh cho nút sao chép sau khi sao chép thành công */
-        color: white; /* Màu chữ trắng */
-    }
-</style>
+        /* Màu cho nút sao chép khi thành công */
+        .copy-button.success {
+            background-color: green; /* Màu xanh cho nút sao chép sau khi sao chép thành công */
+            color: white; /* Màu chữ trắng */
+        }
+    </style>
   
-  
-
     <!-- ... (Thêm các khung mã code khác nếu cần) -->
 
     <footer>
@@ -117,8 +118,6 @@ pkg insttall git && pkg install python && git clone https://github.com/nhutnguye
             <a href="https://telegram.org/">Telegram</a>
         </div>
     </footer>
-
-    
 
     <!-- ... (Thêm các khung mã code khác nếu cần) -->
   
