@@ -30,6 +30,17 @@
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
+      :root {
+  --random-color: #000; /* Màu mặc định nếu không có giá trị ngẫu nhiên */
+}
+
+/* Sử dụng biến CSS để thiết lập màu cho thời gian */
+.sonar-date {
+  color: var(--random-color);
+  font-weight: bold;
+  font-size: 20px;
+}
+
         /* CSS để tạo khung đen cho mã */
         .code-box {
             background-color: #000;
@@ -70,6 +81,7 @@
 <div class="anhdaidien">
 <img class="anhdaidien2" src="https://cdn.bio.link/uploads/profile_pictures/2023-09-18/TLCYdyxx3SjtHUEC3QC7P91yhWjzZ4Fh.png">
 </div>
+
 <div class="tmanh_profile">
 <h1 style="margin-bottom: -10px;">Hướng Dẫn</h1>
 </div>
@@ -77,17 +89,26 @@
 
 <p></p>
 <div class="card-header text-center">
-<h2 class="h2-vip" style="color: blue">-----------------</h2>
+<h2 class="h2-vip" style="color: blue">Thông Tin VPN 4G</h2>
 </div>
-  
+  <div class="col-md-6">
+    <div id="dateBox" style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+        <p>Ngày <b id="duongLich">Dương Lịch</b>:<span class="sonar-date" id="duongLichDate">28-9-2023 12:00:00</span></p>
+        <p>Ngày <b id="amLich">Âm Lịch</b>: <span class="lunar-date" id="amLichDate">14-8-2023</span></p>
+        <p>Ngày <b id="canChi">kỷ sửu</b> tháng <b id="thangAm">tân dậu</b> năm <b id="namAm">quý mão</b></p>
+    </div>
+   <!-- <button id="switchButton" onclick="switchCalendar()">Chuyển đổi</button>-->
+</div>
+
+
   <div class="h2-vip" style="color:Green"> 
         <h1>Thông tin cá nhân</h1>
-        <p><span style="color: Black; font-weight: bold;">Tên:</span> <span style="color: green;">Chưa cập nhập</span></p>
-        <p><span style="color: Black; font-weight: bold;">Email:</span> <span style="color: green;">Chưa cập nhập</span></p>
+        <p><span style="color: Black; font-weight: bold;">Tên:</span> <span style="color: green;">Tên Của Bạn</span></p>
+        <p><span style="color: Black; font-weight: bold;">Email:</span> <span style="color: green;">Tên Của Bạn</span></p>
         <p><span style="color: Black; font-weight: bold;">Số điện thoại:</span> <span style="color: green;">0345030913</span></p>
         <p><span style="color: Black; font-weight: bold;">Ví MOMO:</span> <span style="color: green;">0345030913</span></p>
         <p><span style="color: Black; font-weight: bold;">Tài khoản ngân hàng:</span> <span style="color: green;">Chưa cập nhập</span></p>
-         <!--<p><span style="color: Black; font-weight: bold;">Tên:</span> <span style="color: green;">Chưa cập nhập</span></p>-->
+         <!--<p><span style="color: Black; font-weight: bold;">Tên:</span> <span style="color: green;">Tên Của Bạn</span></p>-->
         <ul class="button-list">
             <li>
                 <button class="button" onclick="copyBankAccount()">Sao chép số tài khoản ngân hàng</button>
@@ -101,13 +122,13 @@
     <!-- ... -->
 
     <!-- Khung đen cho mã và nút sao chép -->
- <!-- <p>Tên: Chưa cập nhập</p> -->  
+ <!-- <p>Tên: Tên Của Bạn</p> -->  
 <div class="code-box">
         <pre class="wp-block-code"><code class="">
 pkg insttall git && pkg install python && git clone https://github.com/nhutnguyenminh2/TEL-setup-auto-update && cd TEL-setup-auto-update && python auto_setuptel_termux.py</code></pre>
        <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
     </div>
- <!-- <p>Tên: Chưa cập nhập</p>-->
+ <!-- <p>Tên: Tên Của Bạn</p>-->
   <div class="code-box">
         <pre class="wp-block-code"><code class="">
 pkg insttall git && pkg install python && git clone https://github.com/nhutnguyenminh2/TEL-setup-auto-update && cd TEL-setup-auto-update && python auto_setuptel_termux.py</code></pre>
@@ -226,6 +247,69 @@ window.addEventListener('load', () => {
             console.error('Lỗi khi lấy địa chỉ IP:', error);
         });
 });
+      
+     let isDuongLich = true; // Ban đầu hiển thị thông tin dương lịch
+
+function updateClock() {
+    const now = new Date();
+    
+    // Lấy thời gian (giờ, phút, giây)
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    
+    // Lấy ngày tháng năm dương lịch
+    const duongLichOptions = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const duongLichDate = now.toLocaleDateString('vi-VN', duongLichOptions);
+    
+    // Lấy thông tin âm lịch (giả sử)
+    const amLichDate = "14-8-2023 00:00:00";
+    
+    // Lấy một màu sắc ngẫu nhiên và thiết lập nó cho thời gian
+    const randomColor = getRandomColor();
+    const timeString = `<span style="color: ${randomColor}; font-weight: bold; font-size: 20px">${hours}:${minutes}:${seconds}</span>`;
+    
+    // Hiển thị thông tin thời gian và ngày tháng năm
+    document.getElementById('duongLich').textContent = isDuongLich ? 'Dương Lịch' : 'Âm Lịch';
+    document.getElementById('duongLichDate').innerHTML = duongLichDate.replace(/(\d{2}-\d{2}-\d{4}) (\d{2}:\d{2}:\d{2})/, `$1 ${timeString}`);
+    document.getElementById('amLichDate').textContent = amLichDate;
+}
+
+function switchCalendar() {
+    isDuongLich = !isDuongLich;
+    updateClock();
+}
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Cập nhật thời gian mỗi giây
+setInterval(updateClock, 1000);
+
+// Gọi hàm để cập nhật lần đầu
+updateClock();
+      function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function updateRandomColor() {
+  const randomColor = getRandomColor();
+  document.documentElement.style.setProperty('--random-color', randomColor);
+}
+
+// Gọi hàm để cập nhật màu sắc ban đầu
+updateRandomColor();
     </script>
     <!-- Đây là phần nội dung của trang web -->
 </body>
