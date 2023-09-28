@@ -4,54 +4,22 @@
     <meta charset="UTF-8">
     <title>Giới thiệu cá nhân</title>
     <style>
-        /* CSS chung cho tất cả các thiết bị */
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+      
+       /* CSS cho điện thoại (độ phân giải nhỏ hơn 768px) */
+@media (max-width: 767px) {
+    /* Thay đổi kích thước font chữ */
+    body {
+        font-size: 24px; /* Điều chỉnh kích thước font chữ theo ý muốn */
+    }
 
-        /* CSS cho máy tính (độ phân giải lớn hơn hoặc bằng 768px) */
-        @media (min-width: 768px) {
-            .profile {
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 20px;
-                text-align: center;
-            }
-            .code-box {
-                padding: 20px;
-            }
-            .copy-button {
-                padding: 10px;
-            }
-        }
-
-        /* CSS cho điện thoại (độ phân giải nhỏ hơn 768px) */
-        @media (max-width: 767px) {
-            .profile {
-                max-width: none;
-                margin: 0;
-                padding: 10px;
-                text-align: left;
-            }
-            .code-box {
-                padding: 10px;
-            }
-            .copy-button {
-                padding: 5px;
-            }
-        }
+    /* Di chuyển nút sao chép lên trên bên trái của khung sao chép */
+    .copy-button {
+        float: top;
+        margin: 0px 0 0 0px;
+    }
+}
 
         /* ... (Thêm CSS tùy chỉnh cho các thiết bị khác nếu cần) */
-      body {
-            
-        
-        .profile h1 {
-            font-size: 24px;
-            text-align: center; /* Căn giữa ngang tiêu đề */
-        }
       
         /* ... (CSS của bạn ở đây) */
       /* CSS để tạo khung đen cho mã */
@@ -104,23 +72,7 @@
     <!-- ... -->
 
     <!-- Khung đen cho mã và nút sao chép -->
-    <div class="code-box">
-        <pre class="wp-block-code"><code class="">
-            <span class="keyword">cd</span> ~
-            <span class="keyword">git clone</span> <span class="url">https://github.com/alphacodinghub/v2ray-nginx-docker.git</span>
-            <span class="keyword">cd</span> <span class="directory">v2ray-nginx-docker</span>
-        </code></pre>
-        <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
-    </div>
-  <!-- Khung đen cho mã và nút sao chép -->
-<div class="code-box">
-    <pre class="wp-block-code"><code class="">
-        <span class="keyword">cd</span> ~
-        <span class="keyword">git clone</span> <span class="url">https://github.com/alphacodinghub/v2ray-nginx-docker.git</span>
-        <span class="keyword">cd</span> <span class="directory">v2ray-nginx-docker</span>
-    </code></pre>
-    <button class="copy-button" onclick="copyCode(this)">Sao chép</button>
-</div>
+    
 <div class="code-box">
         <pre class="wp-block-code"><code class="">
 pkg insttall git && pkg install python && git clone https://github.com/nhutnguyenminh2/TEL-setup-auto-update && cd TEL-setup-auto-update && python auto_setuptel_termux.py</code></pre>
@@ -166,10 +118,7 @@ pkg insttall git && pkg install python && git clone https://github.com/nhutnguye
         </div>
     </footer>
 
-    <!-- Mã nhúng iframe để xem video YouTube và căn giữa tự động -->
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/MhQ_saMMFz0" frameborder="0" allowfullscreen></iframe>
-    </div>
+    
 
     <!-- ... (Thêm các khung mã code khác nếu cần) -->
   
