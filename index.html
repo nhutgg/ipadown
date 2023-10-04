@@ -70,9 +70,17 @@
         }
       /* CSSGG */
       /* CSS để tạo hiệu ứng hover cho biểu tượng và nút "OPEN" */
+.footer-icons {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
 .social-icon {
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều dọc */
     margin: 10px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -80,20 +88,25 @@
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.social-icon:hover {
-    background-color: #f0f0f0;
-    border-color: #bbb;
+.social-icon i {
+    font-size: 24px;
 }
 
 .open-button {
     display: none;
     font-weight: bold;
-    margin-left: 10px;
+    margin-top: 5px;
 }
 
 /* Hiển thị nút "OPEN" khi hover vào biểu tượng */
 .social-icon:hover .open-button {
-    display: inline;
+    display: block;
+}
+
+/* Hiệu ứng hover cho biểu tượng */
+.social-icon:hover {
+    background-color: #f0f0f0;
+    border-color: #bbb;
 }
 
       
@@ -106,6 +119,52 @@
       
       
       /* CSSGG */
+      .link-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #333; /* Màu nền tối nhạt */
+            margin: 10px;
+            border: 1px solid #444; /* Viền */
+        }
+
+        .bio-story-thumb {
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin-right: 10px;
+        }
+
+        .link-content {
+            flex-grow: 1;
+            color: #fff; /* Màu nội dung trắng */
+        }
+
+        .link-content p {
+            margin: 0;
+        }
+
+        .link-content span {
+            cursor: pointer;
+        }
+
+        .link-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .link-btn-chill {
+            background-color: #3498db;
+            color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #2980b9; /* Viền cho nút sao chép */
+            cursor: pointer;
+        }
+      
+      
+      
 
     </style>
 </head>
@@ -143,29 +202,70 @@
     
 <!-- <ICON FACEBOOK>-->
     <footer>
-        <div class="footer-icons">
-            <a href="https://www.facebook.com/" class="social-icon" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
-                <span class="open-button">OPEN</span>
-            </a>
-            <a href="https://www.youtube.com/" class="social-icon" target="_blank">
-                <i class="fab fa-youtube"></i> Youtube
-                <span class="open-button">OPEN</span>
-            </a>
-            <a href="https://telegram.org/" class="social-icon" target="_blank">
-                <i class="fab fa-telegram"></i> Telegram
-                <span class="open-button">OPEN</span>
-            </a>
+    <div class="footer-icons">
+        <a href="https://www.facebook.com/" class="social-icon" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+            <span class="open-button">OPEN</span>
+        </a>
+        <a href="https://www.youtube.com/" class="social-icon" target="_blank">
+            <i class="fab fa-youtube"></i> Youtube
+            <span class="open-button">OPEN</span>
+        </a>
+        <a href="https://telegram.org/" class="social-icon" target="_blank">
+            <i class="fab fa-telegram"></i> Telegram
+            <span class="open-button">OPEN</span>
+        </a>
+    </div>
+</footer>  
+</div>
+    <!-- <ICON FACEBOOK>-->
+  <!-- Thông tin chuyển khoản -->
+              <p class="drop-title">Thông Tin Chuyển Khoản</p>
+<div id="link-box">
+    <div class="link-item">
+        <div class="bio-story-thumb" style="background-image: url('https://cdn.glitch.global/e751d0a4-1c8b-4509-bc52-77c5508cdc15/facebook.jpg?v=1696429705889');"></div>
+        <div class="link-content">
+            <p>MB Bank</p>
+            <span id="mbBankInfo">912 01234 99999</span>
         </div>
-    </footer>
+        <div class="link-btn">
+            <div class="link-btn-chill light-blue" onclick="copyToClipboard('mbBankInfo')">COPY</div>
+        </div>
+    </div>
+
+    <div class="link-item">
+        <div class="bio-story-thumb" style="background-image: url('https://example.com/momo.jpg');"></div>
+        <div class="link-content">
+            <p>Ví MOMO</p>
+            <span id="momoInfo">Số tài khoản MOMO</span>
+        </div>
+        <div class="link-btn">
+            <div class="link-btn-chill light-blue" onclick="copyToClipboard('momoInfo')">COPY</div>
+        </div>
+    </div>
+
+    <div class="link-item">
+        <div class="bio-story-thumb" style="background-image: url('https://example.com/youtube.jpg');"></div>
+        <div class="link-content">
+            <p>YOUTUBE</p>
+            <span id="youtubeInfo">Đường dẫn YOUTUBE</span>
+        </div>
+        <div class="link-btn">
+            <div class="link-btn-chill light-blue" onclick="copyToClipboard('youtubeInfo')">COPY</div>
+        </div>
+    </div>
 </div>
 
-    
-    
-    
-    
-    
-    <!-- <ICON FACEBOOK>-->
+  
+  
+  
+  
+ <!-- Thông tin chuyển khoản -->  
+  
+  
+  
+  
+  
     
         <p><span style="color: Black; font-weight: bold;">Ví MOMO:</span> <span style="color: green;">0345030913</span></p>
         <p><span style="color: Black; font-weight: bold;">Tài khoản ngân hàng:</span> <span style="color: green;">Chưa cập nhập</span></p>
@@ -241,6 +341,7 @@ pkg insttall git && pkg install python && git clone https://github.com/nhutnguye
     <!-- ... (Thêm các khung mã code khác nếu cần) -->
   <p id="userIP">Địa chỉ IP của bạn sẽ xuất hiện ở đây.</p>
     <script>
+      
        function copyBankAccount() {
             var bankAccount = document.createElement("textarea");
             bankAccount.value = "chưa cập nhập";
@@ -359,6 +460,29 @@ function updateRandomColor() {
 
 // Gọi hàm để cập nhật màu sắc ban đầu
 updateRandomColor();
+      
+      
+      
+      
+      function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            
+            const copyButton = document.querySelector(".link-btn-chill.light-blue");
+            copyButton.textContent = "COPIED";
+            copyButton.style.backgroundColor = "green";
+            copyButton.style.color = "white";
+            setTimeout(() => {
+                copyButton.textContent = "COPY";
+                copyButton.style.backgroundColor = "lightblue";
+                copyButton.style.color = "black";
+            }, 2000);
+        }
     </script>
     <!-- Đây là phần nội dung của trang web -->
 </body>
