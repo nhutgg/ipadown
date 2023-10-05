@@ -44,7 +44,7 @@
 
         /* CSS để tạo khung đen cho mã */
         .code-box {
-            background-color: #000;
+            background-color: #008;
             padding: 10px;
             border-radius: 5px;
             margin: 10px 0;
@@ -207,7 +207,29 @@
     display: inline;
 }
       
-      
+    .rainbow-text {
+            display: inline-block;
+            animation: changeColor 2s linear infinite alternate;
+            animation-name: none; /* Tắt hiệu ứng nhấp nhảy */
+        }
+
+        @keyframes changeColor {
+            0% {
+                color: red;
+            }
+            25% {
+                color: blue;
+            }
+            50% {
+                color: green;
+            }
+            75% {
+                color: orange;
+            }
+            100% {
+                color: purple;
+            }
+        }
 /* CSS để tạo hình nền */
 .page-image {
     position: fixed;
@@ -237,25 +259,22 @@
 
 <div class="tmanh_profile">
 
-  <h1 class="h1-vip" style="color: white">Thông Tin Liên Hệ</h1>
+   <h1 class="page-title mt-16 text-center">
+        <span class="rainbow-text">Thông Tin Liên Hệ</span>
+    </h1>
 </div>
 <p></p>
 <div class="card-header text-center">
-<h2 class="h2-vip" style="color: green">đang hoạt động</h2>
+    <h2 class="h2-vip" style="color: green; font-style: italic; font-size: 14px;">đang hoạt động</h2>
 </div>
  <!-- <p class="drop-title">Thông Tin Chuyển Khoản</p> -->
 <div id="dateTimeContainer">
     <p id="currentClock" class="sonar-date"></p>
-    <div id="lunarDateContainer">
+    <div id="lunarDateContainer"></div>
         <p id="currentLunarDate" class="sonar-date"></p>
         <p>Ngày <b id="canChi">kỷ sửu</b> tháng <b id="thangAm">tân dậu</b> năm <b id="namAm">quý mão</b></p>
     </div>
-</div>
-
-
-  <div class="h2-vip" style="color:Green"> 
-        <h1>Thông tin cá nhân</h1>
-    
+</div> 
 <!-- <ICON FACEBOOK>-->
     <footer>
     <div class="footer-icons">
