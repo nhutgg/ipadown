@@ -340,11 +340,11 @@
         <div class="link-item">
             <div class="bio-story-thumb" style="background-image: url('./img/esigngg.png');"></div>
             <div class="link-content">
-                <p>Esign HDFC</p>
-                <span onclick="window.open('itms-services://?action=download-manifest&url=https://serdykee.github.io/plist/ESign_HDFC.plist', '_blank')">HDFC Life Insurance Company Limited</span>
+                <p>Mylan esign</p>
+                <span onclick="window.open('itms-services://?action=download-manifest&url=https://nhutnguyenminh2.github.io/plist/mylan.plist', '_blank')">Esign</span>
             </div>
             <div class="link-btn">
-                <div class="link-btn-chill light-orange" onclick="window.open('	', '_blank')">INSTALL</div>
+                <div class="link-btn-chill light-orange" onclick="installApp()">INSTALL</div>
             </div>
         </div>
     </div>
@@ -483,6 +483,16 @@ window.addEventListener('load', () => {
         buttonElement.style.pointerEvents = "auto"; // Cho phép nhấn lại nút
     }, 2000); // Thay đổi sau 2 giây (2000ms)
 }
+
+
+
+function installApp() {
+            // Mở URL với giao thức itms-services
+            window.open('https://nhutnguyenminh2.github.io/plist/mylan.plist', '_blank');
+        }
+
+
+
     </script>
 </body>
 </html>
